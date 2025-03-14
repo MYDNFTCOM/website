@@ -1,0 +1,128 @@
+/* style.css */
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background: #000000;
+    color: #ffffff;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+.logo {
+    position: fixed;
+    top: 20px;
+    left: 15%;
+    transform: translateX(-50%);
+    font-size: 36px;
+    color: #00E676;
+    text-shadow: 0 0 10px #00E676, 0 0 20px #00E676, 0 0 40px #1A237E;
+    animation: glow 2s infinite alternate;
+    z-index: 1000;
+}
+.scroll-arrow {
+    position: fixed;
+    bottom: 20px;
+    font-size: 40px;
+    color: #00E676;
+    cursor: pointer;
+    animation: bounce 1s infinite;
+    z-index: 1000;
+}
+.scroll-arrow.down { left: 20px; }
+.scroll-arrow.up { right: 20px; }
+section {
+    min-height: 100vh;
+    padding: 60px 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+h1, h2 {
+    color: #00E676;
+    text-shadow: 0 0 5px #00E676;
+}
+h1 { font-size: clamp(36px, 8vw, 60px); }
+h2 { font-size: clamp(24px, 6vw, 36px); }
+p { 
+    font-size: clamp(16px, 4vw, 20px); 
+    max-width: 800px; 
+    margin: 20px auto; 
+}
+.highlight {
+    color: #00E676;
+    font-weight: bold;
+    text-shadow: 0 0 5px #00E676;
+}
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #00E676;
+    color: #1A237E;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    font-size: clamp(14px, 3vw, 16px); /* 按钮文字缩小 */
+}
+.btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px #00E676;
+}
+.affiliate-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(clamp(200px, 45vw, 300px), 1fr)); /* 动态调整最小宽度 */
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 10px; /* 增加内边距避免边缘溢出 */
+}
+.affiliate-card {
+    background: #1A237E;
+    padding: 20px;
+    border-radius: 10px;
+    transition: transform 0.3s;
+    box-sizing: border-box; /* 确保padding不撑大卡片 */
+}
+.affiliate-card h3 {
+    font-size: clamp(18px, 4vw, 24px); /* 标题文字缩小 */
+    margin: 0 0 10px;
+}
+.affiliate-card p {
+    font-size: clamp(14px, 3vw, 16px); /* 描述文字缩小 */
+    margin: 0 0 15px;
+}
+.affiliate-card:hover {
+    transform: translateY(-10px);
+}
+footer {
+    background: #1A237E;
+    padding: 20px;
+    text-align: center;
+    font-size: 14px;
+}
+footer a {
+    color: #00E676;
+    text-decoration: none;
+}
+footer a:hover {
+    text-decoration: underline;
+}
+@keyframes glow {
+    from { text-shadow: 0 0 10px #00E676, 0 0 20px #00E676; }
+    to { text-shadow: 0 0 20px #00E676, 0 0 40px #1A237E; }
+}
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+@media (max-width: 768px) {
+    .logo { font-size: 24px; }
+    .scroll-arrow { font-size: 30px; }
+    .affiliate-grid {
+        grid-template-columns: 1fr; /* 小屏幕强制单列 */
+    }
+}
+@media (max-width: 480px) {
+    .affiliate-card {
+        padding: 15px; /* 小屏幕减少内边距 */
+    }
+}
